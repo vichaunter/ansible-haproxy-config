@@ -38,8 +38,6 @@ haproxy_defaults:
     - number: 400
       src: /etc/haproxy/errors/400.http
     - number: 403
-      src: /etc/haproxy/errors/400.http
-    - number: 403
       src: /etc/haproxy/errors/403.http
     - number: 408
       src: /etc/haproxy/errors/408.http

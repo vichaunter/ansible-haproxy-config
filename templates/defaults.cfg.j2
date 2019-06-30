@@ -1,22 +1,22 @@
 
 {% if haproxy_defaults is defined %}
 defaults
-  {% if haproxy_defaults.log is defined %}
+{% if haproxy_defaults.log is defined %}
   log {{haproxy_defaults.log}}
-  {% endif %}
-  {% if haproxy_defaults.mode is defined %}
+{% endif %}
+{% if haproxy_defaults.mode is defined %}
   mode {{haproxy_defaults.mode}}
-  {% endif %}
+{% endif %}
 
-  {% for option in haproxy_defaults.options | default([]) %}
+{% for option in haproxy_defaults.options | default([]) %}
   option {{option}}
-  {% endfor %}
+{% endfor %}
 
-	{% for key, value in haproxy_defaults.timeouts.iteritems() | default([]) %}
+{% for key, value in haproxy_defaults.timeouts.iteritems() | default([]) %}
   timeout {{key}} {{value}}
-  {% endfor %}
+{% endfor %}
 
-  {% for errorfile in haproxy_defaults.errorfiles | default([]) %}
+{% for errorfile in haproxy_defaults.errorfiles | default([]) %}
   errorfile {{errorfile.number}} {{errorfile.src}}
-  {% endfor %}
+{% endfor %}
 {% endif %}
