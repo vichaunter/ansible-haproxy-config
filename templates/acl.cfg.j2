@@ -1,10 +1,9 @@
-# {{ ansible_managed }}
 {% for acl in frontend.acls | default([]) %}
   acl {{acl.name}} {{acl.condition}}
-  {% if acl.backend is defined %}
-  use_backend {{acl.backend}} if {{acl.name}}
-  {% endif %}
-  {% if acl.http_request is defined %}
+{% if acl.use_backend is defined %}
+  use_backend {{acl.use_backend}} if {{acl.name}}
+{% endif %}
+{% if acl.http_request is defined %}
   http-request {{acl.http_request}}
-  {% endif %}
+{% endif %}
 {% endfor %}

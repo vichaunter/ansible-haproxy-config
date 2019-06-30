@@ -70,4 +70,7 @@ Why this repo?
 I've made it because after find some roles to do this job, the host_vars configuration there
 was quite repetitive and confusing in some points.
 
+Also because i expected a properly formatted haproxy.cfg file, and found repos
+was not taking care about readability of sources from terminal.
+
 Was also needed to edit in several places some things that should be calculated automatically.
