@@ -1,0 +1,28 @@
+---
+- name: update apt
+  apt: update_cache=yes cache_valid_time=3600
+  tags:
+    - apt
+
+- name: install haproxy
+  apt: name=haproxy state=present
+  tags:
+    - install_services
+    - haproxy
+    - haproxy_server
+
+- name: Enable init script
+  replace: dest='/etc/default/haproxy'
+    regexp='ENABLED=0'
+    replace='ENABLED=1'
+  tags:
+    - enable_services
+    - haproxy
+    - haproxy_server
+
+- name: configure haproxy
+  apt: name=haproxy state=present
+  tags:
+    - configure_services
+    - haproxy
+    - haproxy_configuration

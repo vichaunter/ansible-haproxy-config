@@ -1,0 +1,2 @@
+---
+haproxy_conf_template: "haproxy.cfg.j2"
