@@ -1,4 +1,4 @@
-{% for frontend in haproxy_frontend %}
+{% for frontend in haproxy_frontend | default([])%}
 frontend {{ frontend.name }}
 {% if frontend.description is defined %}
   description {{ frontend.description }}
