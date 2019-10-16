@@ -14,6 +14,13 @@ haproxy_frontend:
       - name: host_name
         condition: "hdr(host) -i www.domain.com"
         backend: "domain_backend"
+      - name: host_name
+        criterion: hdr(host)
+        flags: -i
+        patterns:
+          - www.domain.com
+        use_backend: domain_backend
+
     ssl_paths:
       - /etc/haproxy/certs/certname.tld.pem
       - /etc/haproxy/certs/subdomain.certname.tld.pem
